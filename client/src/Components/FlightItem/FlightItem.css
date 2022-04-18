@@ -1,0 +1,44 @@
+.flights{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.flight_card{
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    border-radius: 7px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 20px;
+}
+.flight_card img{
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+}
+.row_btn{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.row_btn a{
+    width: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px;
+}
+#btn_buy{
+    background: #555;
+    margin-right: 5px;
+}
+#btn_view{
+    background: teal;
+    margin-left: 5px;
+}
