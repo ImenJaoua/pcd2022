@@ -18,12 +18,12 @@ function FlightAPI() {
    },[])
 
    useEffect(() =>{
-    const getProducts = async () => {
-        const res = await axios.get(`/api/products?limit=${page*9}&${sort}&title[regex]=${search}`)
-        setFlights(res.data.products)
+    const getFlights = async () => {
+        const res = await axios.get(`/api/flights?limit=${page*9}&${sort}&Destination[regex]=${search}`)
+        setFlights(res.data.flights)
         setResult(res.data.result)
     }
-    getProducts()
+    getFlights()
 },[callback, sort, search, page])
 
    return {

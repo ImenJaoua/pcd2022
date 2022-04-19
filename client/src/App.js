@@ -15,6 +15,7 @@ import { DataProvider } from './GlobalState'
 import MainPage from './pages/MainPage/MainPage';
 import CreateFlight from './pages/CreateFlight/CreateFlight';
 import DetailFlight from './pages/DetailFlight/DetailFlight'
+import Cart from './Components/Cart/Cart'
 const App = () => {
   return (
     <DataProvider>
@@ -37,6 +38,9 @@ const App = () => {
             </Route>
             <Route path="/flight" exact>
               <Flights />
+            </Route>
+            <Route path="/cart" exact>
+              <Cart />
             </Route>
             
             <Route path="/login" exact>

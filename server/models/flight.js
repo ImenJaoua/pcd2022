@@ -59,7 +59,11 @@ const FlightSchema = new mongoose.Schema ({
     checked:{
         type:Boolean,
         default:false
-    }
+    },
+    category:{
+        type: String,
+        required: true
+    },
    /* postedBy:{
         type:ObjectId,
         ref:"Admin"
