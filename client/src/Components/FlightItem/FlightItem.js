@@ -17,9 +17,9 @@ function FlightItem({ flight, isAdmin, deleteFlight, handleCheck }) {
 
 
                 <div className='service-content'>
-                    <h4>${flight.Destination}</h4>
+                    <h4>{flight.Destination}</h4>
 
-                    <small className='text'>${flight.Description}</small>
+                    <small className='text'>{flight.Description}</small>
                     <div className='service-footer'>
                         <a href="/booking">
                             <BtnRender flight={flight} deleteFlight={deleteFlight} />

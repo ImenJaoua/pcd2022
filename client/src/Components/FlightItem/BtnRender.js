@@ -17,7 +17,7 @@ function BtnRender({flight,deleteFlight}) {
                    onClick={() =>deleteFlight(flight._id, flight.images.public_id)}>
                         Delete
                     </Link>
-                   <Link id="btn_view" /*to={`/edit_flight/${flight._id}`}*/>
+                   <Link id="btn_view" to={`/edit_flight/${flight._id}`}>
                         Edit
                     </Link>
                 </>

@@ -29,6 +29,9 @@ const App = () => {
             <Route path="/main" exact>
               <MainPage />
             </Route>
+            <Route path="/createFlight" exact>
+              <CreateFlight />
+            </Route>
             <Route path="/detail/:id" exact>
               <DetailFlight />
             </Route>
@@ -38,7 +41,9 @@ const App = () => {
             <Route path="/flight" exact>
               <Flights />
             </Route>
-            
+            <Route path="/edit_flight/:id" exact>
+              <CreateFlight />
+            </Route>
             <Route path="/login" exact>
               <Login />
             </Route>
