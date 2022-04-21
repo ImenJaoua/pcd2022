@@ -5,6 +5,9 @@ function UserAPI(token) {
     const [isLogged, setIsLogged] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
     
+    const [cart, setCart] = useState([])
+    const [history, setHistory] = useState([])
+
 
     useEffect(() =>{
         if(token){
@@ -16,6 +19,7 @@ function UserAPI(token) {
                     console.log(res)
                     setIsLogged(true)
                     res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
+                    setCart(res.data.cart)
 
 
                 } catch (err) {
@@ -28,6 +32,24 @@ function UserAPI(token) {
         }
     },[token])
 
+    const addCart = async (flight) => {
+        if(!isLogged) return alert("Please login to continue buying")
+
+        const check = cart.every(item =>{
+            return item._id !== flight._id
+        })
+
+        if(check){
+            setCart([...cart, {...flight, quantity: 1}])
+
+            await axios.patch('/user/addcart', {cart: [...cart, {...flight, quantity: 1}]}, {
+                headers: {Authorization: token}
+            })
+
+        }else{
+            alert("This flight has been added to cart.")
+        }
+    }
     
 
 
@@ -35,6 +57,9 @@ function UserAPI(token) {
     return {
         isLogged: [isLogged, setIsLogged],
         isAdmin: [isAdmin, setIsAdmin],
+        cart: [cart, setCart],
+        addCart: addCart,
+        history: [history, setHistory]
        
     }
 }

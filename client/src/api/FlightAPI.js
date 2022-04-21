@@ -19,7 +19,7 @@ function FlightAPI() {
 
    useEffect(() =>{
     const getFlights = async () => {
-        const res = await axios.get(`/api/flights?limit=${page*9}&${sort}&title[regex]=${search}`)
+        const res = await axios.get(`/api/flights?limit=${page*9}&${sort}&Destination[regex]=${search}`)
         setFlights(res.data.flights)
         setResult(res.data.result)
     }

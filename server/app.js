@@ -25,9 +25,7 @@ mongoose.connection.on ('error',(err)=>{
     console.log("error connecting",err)
 })
 
-//require('./models/passenger')
-//require('./models/flight')
-//require('./models/booking')
+
 app.use( express.json())
 app.use(cors())
 app.use(fileUpload({
@@ -38,6 +36,7 @@ app.use('/user',require('./routes/authP'))
 //app.use(require('./routes/Booking'))
 app.use('/api',require('./routes/Flight'))
 app.use('/api',require('./routes/upload'))
+app.use('/api', require('./routes/categoryRouter'))
 
 
 app.listen(PORT,()=>{

@@ -14,7 +14,8 @@ const initialState = {
     Airline:'',
     Capacity: '',
     Description: '',
-    Price: ''
+    Price: '',
+    Category:'',
 
 }
 
@@ -195,6 +196,11 @@ function CreateFlight() {
                     <input type="text" name="Price" id="price" required
                      rows="2"  value={flight.Price} onChange={handleChangeInput} />
                 </div>
+                {/* <div className="row">
+                    <label htmlFor="content">Category</label>
+                    <input type="text" name="Category" id="cat" required
+                     rows="2"  value={flight.Category} onChange={handleChangeInput} />
+                </div> */}
                 <button type="submit">{onEdit? "Update" : "Create"}</button>
             </form>
         </div>

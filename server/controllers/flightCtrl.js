@@ -66,6 +66,7 @@ createFlight: async(req, res) =>{
                     Price,
                     images
                     
+                    
                  })
                 await newFlight.save()
                  
@@ -105,10 +106,10 @@ createFlight: async(req, res) =>{
             },
             updateFlight: async(req, res) =>{
                 try {
-                    const{Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images}=req.body
+                    const{Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images,category}=req.body
         
                     await Flight.findOneAndUpdate({_id: req.params.id}, {
-                        Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images
+                        Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images,category
                     })
         
                     res.json({msg: "Updated a Flight"})
