@@ -39,6 +39,7 @@ app.use('/user',require('./routes/authP'))
 app.use('/api',require('./routes/Flight'))
 app.use('/api',require('./routes/upload'))
 app.use('/api', require('./routes/categoryRouter'))
+app.use('/api', require('./routes/paymentRouter'))
 
 app.listen(PORT,()=>{
     console.log("serveur is running on port ",PORT)

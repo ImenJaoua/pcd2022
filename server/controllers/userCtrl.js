@@ -38,6 +38,7 @@ const userCtrl = {
             return res.status(500).json({msg: err.message})
         }
     },
+           
     login: async (req, res) =>{
         try {
             const {email, password} = req.body;
@@ -114,7 +115,7 @@ const userCtrl = {
                 return res.status(500).json({msg: err.message})
             }
         },
-        /*history: async(req, res) =>{
+        history: async(req, res) =>{
             try {
                 const history = await Payments.find({user_id: req.user.id})
     
@@ -122,7 +123,7 @@ const userCtrl = {
             } catch (err) {
                 return res.status(500).json({msg: err.message})
             }
-        }*/
+        }
      }
   
 

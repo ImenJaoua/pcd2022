@@ -1,10 +1,10 @@
 
-/*import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
 import { GlobalState } from '../../GlobalState'
 import './CreateFlight.css'
 import { useHistory, useParams } from 'react-router-dom'
-
+import Loading from '../../Components/Loading/Loading'
 const initialState = {
     Destination: '',
     DepatureTime:'',
@@ -23,7 +23,7 @@ function CreateFlight() {
     const [flight, setFlight] = useState(initialState)
     // const [categories] = state.categoriesAPI.categories
      const [images, setImages] = useState(false)
-    //const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
 
     const [isAdmin] = state.userAPI.isAdmin
@@ -37,11 +37,22 @@ function CreateFlight() {
     const [callback, setCallback] = state.flightAPI.callback
 
     useEffect(() => {
-      
+        if(param.id){
+            setOnEdit(true)
+            flights.forEach(flight => {
+                if(flight._id === param.id) {
+            setFlight(flight)
+            setImages(flight.images)
+                }
+            })
+        }else{
+            setOnEdit(false)
             setFlight(initialState)
             setImages(false)
+        }
+  
         
-    }, [flights])
+    }, [param.id,flights])
 
      const handleUpload = async e =>{
          e.preventDefault()
@@ -51,7 +62,7 @@ function CreateFlight() {
              
              if(!file) return alert("File not exist.")
  
-             if(file.size > 1024 * 1024) // 1mb
+             if(file.size > 10000 * 10000) // 1mb
                  return alert("Size too large!")
  
              if(file.type !== 'image/jpeg' && file.type !== 'image/png') // 1mb
@@ -93,15 +104,20 @@ function CreateFlight() {
         e.preventDefault()
         try {
             if (!isAdmin) return alert("You're not an admin")
-            //  if(!images) return alert("No Image Upload")
+              if(!images) return alert("No Image Upload")
 
-         
-                await axios.post('/api/flights', { ...flight }, {
-                    headers: { Authorization: token }
+              if(onEdit){
+                await axios.put(`/api/flights/${flight._id}`, {...flight, images}, {
+                    headers: {Authorization: token}
                 })
+            }else{
+                await axios.post('/api/flights', {...flight, images}, {
+                    headers: {Authorization: token}
+                })
+            }
             
               setCallback(!callback)
-            history.push("/")
+            history.push("/main")
         } catch (err) {
             alert(err.response.data.msg)
         }
@@ -111,7 +127,7 @@ function CreateFlight() {
          display: images ? "block" : "none"
      }
     return (
-        <div className="create_product">
+        <div className="create_flight">
     <div className="upload">
                 <input type="file" name="file" id="file_up" onChange={handleUpload}/>
                 {
@@ -124,66 +140,65 @@ function CreateFlight() {
                 }
                 
             </div>
-            <img className="image" src="https://idsb.tmgrup.com.tr/ly/uploads/images/2021/10/05/149803.jpg" alt="" />
 
 
 
 
             <form onSubmit={handleSubmit}>
 
-             
-                <div className="row">
+                 <div className="row">
                     <label htmlFor="title">Destination</label>
-                    <input type="text" name="title" id="des" required
-                    value={flights.Destination} onChange={handleChangeInput} />
-                </div>
+                    <input type="text" name="Destination" id="Destination" required
+                    value={flight.Destination} onChange={handleChangeInput} />
+                </div> 
+                
                 <div className="row">
                     <label htmlFor="dt">Departure time</label>
-                    <input type="text" name="DepartureTime" id="dt" required
-                        value={flights.DepartureTime}  onChange={handleChangeInput} />
+                    <input type="text" name="DepatureTime" id="dt" required
+                        value={flight.DepatureTime}  onChange={handleChangeInput} />
                 </div>
                 
                 <div className="row">
                     <label htmlFor="at">Arrival time</label>
-                    <input type="text" name="Arrival_time" id="at" required
-                       value={flights.ArrivalTime}   onChange={handleChangeInput} />
+                    <input type="text" name="ArrivalTime" id="at" required
+                       value={flight.ArrivalTime}   onChange={handleChangeInput} />
                 </div>
                 <div className="row">
                     <label htmlFor="da">Depature Airport</label>
-                    <input type="text" name="Departure_airport" id="da" required
-                        value={flights.DepartureAirport}  onChange={handleChangeInput} />
+                    <input type="text" name="DepatureAirport" id="da" required
+                        value={flight.DepatureAirport}  onChange={handleChangeInput} />
                 </div>
                 <div className="row">
                     <label htmlFor="aa">Arrival Airport</label>
-                    <input type="text" name="Arrival_airport" id="aa" required
-                       value={flights.DepartureAirport}   onChange={handleChangeInput} />
+                    <input type="text" name="ArrivalAirport" id="aa" required
+                       value={flight.ArrivalAirport}   onChange={handleChangeInput} />
                 </div>
                 <div className="row">
                     <label htmlFor="airline">Airline</label>
                     <input type="text" name="Airline" id="airline" required
-                       value={flights.Airline}   onChange={handleChangeInput} />
+                       value={flight.Airline}   onChange={handleChangeInput} />
                 </div>
                 <div className="row">
                     <label htmlFor="price">Capacity</label>
-                    <input type="number" name="price" id="capacity" required
-                        value={flights.Capacity}  onChange={handleChangeInput} />
+                    <input type="number" name="Capacity" id="capacity" required
+                        value={flight.Capacity}  onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="description">Description</label>
-                    <textarea type="text" name="description" id="description" required
-                        rows="5"  value={flights.Description}  onChange={handleChangeInput} />
+                    <textarea type="text" name="Description" id="description" required
+                        rows="5"  value={flight.Description}  onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="content">Price</label>
-                    <textarea type="text" name="price" id="price" required
-                     rows="2"  value={flights.Price} onChange={handleChangeInput} />
+                    <input type="text" name="Price" id="price" required
+                     rows="2"  value={flight.Price} onChange={handleChangeInput} />
                 </div>
-                <button type="submit">Create</button>
+                <button type="submit">{onEdit? "Update" : "Create"}</button>
             </form>
         </div>
     )
 }
 
-export default CreateFlight*/
+export default CreateFlight
