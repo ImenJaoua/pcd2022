@@ -44,5 +44,15 @@ const sold = async (id, quantity, oldSold) =>{
         sold: quantity + oldSold
     })
 }
+const disponible = async (id, Capacity,sold) =>{
+    await Flights.findOneAndUpdate({_id: id}, {
+        disponible: Capacity-sold
+    })
+}
+
+
+    
+    
+
 
 module.exports = paymentCtrl

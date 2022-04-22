@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../GlobalState'
 import Menu from './icon/menu.svg'
 import Close from './icon/close.svg'
-//import Cart from './icon/cart.svg'
+import Plane from './icon/plane.png'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import './MainPage_Header.css'
@@ -11,7 +11,7 @@ function MainPage_Header() {
     console.log(state)
     const [isLogged,setIsLogged] = state.userAPI.isLogged
     const [isAdmin,setIsAdmin] = state.userAPI.isAdmin
-   // const [cart] = state.userAPI.cart
+    const [cart] = state.userAPI.cart
     const [menu, setMenu] = useState(false)
 
     const logoutUser = async () =>{
@@ -34,7 +34,7 @@ function MainPage_Header() {
     const loggedRouter = () =>{
         return(
             <>
-                <li><Link to="/">History</Link></li>
+                <li><Link to="/history">History</Link></li>
                 <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
             </>
         )
@@ -73,6 +73,16 @@ function MainPage_Header() {
             </ul>
 
          
+            {
+                isAdmin ? '' 
+                :<div className="cart-icon">
+                    <span>{cart.length}</span>
+                    <Link to="/cart">
+                        <img src={Plane} alt="" width="30" />
+                    </Link>
+                </div>
+            }
+            
             
         </header>
     )

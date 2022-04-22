@@ -9,24 +9,23 @@ function FlightItem({ flight, isAdmin, deleteFlight, handleCheck }) {
                 isAdmin && <input type="checkbox" checked={flight.checked}
                 onChange={() => handleCheck(flight._id)} />
             }
-            <div className='service-image'>
                 <img src={flight.images.url} alt="" />
-            </div>
            
-            <div className='service'>
+            <div className='flight_box'>
 
 
                 <div className='service-content'>
-                    <h4>{flight.Destination}</h4>
+                    <h3>{flight.Destination}</h3>
 
                     <small className='text'>{flight.Description}</small>
                     <div className='service-footer'>
-                        <a href="/booking">
-                            <BtnRender flight={flight} deleteFlight={deleteFlight} />
-                        </a>
                         <h1>
                             {flight.Price}
                         </h1>
+                        <a href="/booking">
+                            <BtnRender flight={flight} deleteFlight={deleteFlight} />
+                        </a>
+                        
 
                     </div>
 

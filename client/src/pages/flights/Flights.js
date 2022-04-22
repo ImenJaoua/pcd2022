@@ -22,7 +22,7 @@ function Flights() {
   const deleteFlight= async(id,public_id) => {
     try {
       setLoading(true)
-      const destroyImg = axios.post('/destroy', {public_id},{
+      const destroyImg = axios.post('/api/destroy', {public_id},{
           headers: {Authorization: token}
       })
         

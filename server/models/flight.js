@@ -38,7 +38,7 @@ const FlightSchema = new mongoose.Schema ({
         required:true
     },
     Capacity:{
-        type:String,
+        type:Number,
         trim:true,
         required:true
     },
@@ -47,7 +47,7 @@ const FlightSchema = new mongoose.Schema ({
         required:true
     },
     Price:{
-        type:String,
+        type: Number,
         trim:true,
 
         required:true
@@ -60,10 +60,19 @@ const FlightSchema = new mongoose.Schema ({
         type:Boolean,
         default:false
     },
-    category:{
-        type: String,
-        required: true
+    sold:{
+        type: Number,
+        default: 0
     },
+    disponible:{
+        type: Number,
+        default: 0
+    },
+    
+    // category:{
+    //     type: String,
+    //     required: true
+    // },
    /* postedBy:{
         type:ObjectId,
         ref:"Admin"

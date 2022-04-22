@@ -1,5 +1,5 @@
 const Passenger = require('../models/passenger')
-
+const Payments = require('../models/Payment')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const userCtrl = {
@@ -103,10 +103,10 @@ const userCtrl = {
         },
         addCart: async (req, res) =>{
             try {
-                const user = await Passengers.findById(req.user.id)
+                const user = await Passenger.findById(req.user.id)
                 if(!user) return res.status(400).json({msg: "User does not exist."})
     
-                await Passengers.findOneAndUpdate({_id: req.user.id}, {
+                await Passenger.findOneAndUpdate({_id: req.user.id}, {
                     cart: req.body.cart
                 })
     

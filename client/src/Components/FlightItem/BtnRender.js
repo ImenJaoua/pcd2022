@@ -22,7 +22,7 @@ function BtnRender({flight,deleteFlight}) {
                     </Link>
                 </>
                 : <>
-                    <Link id="btn_buy" /*to="#!" onClick={() => addCart(product)}*/>
+                    <Link id="btn_buy" to="#!" onClick={() => addCart(flight)}>
                         Book
                     </Link>
                     <Link id="btn_view" to={`/detail/${flight._id}`}>

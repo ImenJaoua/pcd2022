@@ -12,7 +12,7 @@ import Categories from './Categories/Categories'
 import NotFound from './Utils/NotFound/not_found'
 import MainPage from '../pages/MainPage/MainPage'
 import {GlobalState} from '../GlobalState'
-
+import OrderDetails from '../pages/History/OrderDetails'
 
 function Pages() {
     const state = useContext(GlobalState)
@@ -34,7 +34,7 @@ function Pages() {
             <Route path="/edit_flight/:id" exact component={CreateFlight } />
 
             <Route path="/history" exact component={ OrderHistory } />
-            {/* <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} /> */}
+            { <Route path="/history/:id" exact component={ OrderDetails } /> }
 
             <Route path="/cart" exact component={Cart} />
 

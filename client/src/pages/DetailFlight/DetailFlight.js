@@ -20,6 +20,8 @@ function DetailFlight() {
             })
         }
     },[params.id, flights])
+  
+
 
     if(detailFlight.length === 0) return null;
 
@@ -35,7 +37,7 @@ function DetailFlight() {
                     <span>$ {detailFlight.Price}</span>
                     <p>{detailFlight.Description}</p>
                     <p>{detailFlight.Airline}</p>
-                    <p>Sold: {detailFlight.Capacity}</p>
+                    <p>Sold: {detailFlight.disponible}</p>
                     <Link to ="/cart" className="cart"
                     onClick={() => addCart(detailFlight)}>
                         Book Now
