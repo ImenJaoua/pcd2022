@@ -3,6 +3,9 @@ import {GlobalState} from '../../GlobalState'
 import FlightItem from '../../Components/FlightItem/FlightItem'
 import axios from 'axios'
 import Loading from '../../Components/Loading/Loading'
+import './Flights.css'
+import Filters from './Filters'
+import LoadMore from './LoadMore'
 function Flights() {
   const state= useContext(GlobalState)
 
@@ -39,8 +42,8 @@ function Flights() {
     }
 }
 const checkAll = () =>{
-  flights.forEach(product => {
-      product.checked = !isCheck
+  flights.forEach(flight => {
+      flight.checked = !isCheck
   })
   setFlights([...flights])
   setIsCheck(!isCheck)
@@ -55,6 +58,7 @@ if(loading) return <div><Loading /></div>
 
   return (
     <>
+    <Filters/>
        
     {
             isAdmin && 
@@ -73,6 +77,7 @@ if(loading) return <div><Loading /></div>
         })
       }
     </div>
+    <LoadMore/>
     {flights.length===0 && <Loading/>}
     </>
   )

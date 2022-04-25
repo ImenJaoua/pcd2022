@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../GlobalState'
 import Menu from './icon/menu.svg'
 import Close from './icon/close.svg'
-import Plane from './icon/plane.png'
+import Plane from './icon/plane.svg'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import './MainPage_Header.css'
@@ -13,7 +13,19 @@ function MainPage_Header() {
     const [isAdmin,setIsAdmin] = state.userAPI.isAdmin
     const [cart] = state.userAPI.cart
     const [menu, setMenu] = useState(false)
-
+    
+    const hist = async()=>{
+        window.location.href = "/history";
+    }
+    const cat = async()=>{
+        window.location.href = "/cat";
+    }
+    const createFlight = async()=>{
+        window.location.href = "/createFlight";
+    } 
+    const ca = async()=>{
+        window.location.href = "/cart";
+    }
     const logoutUser = async () =>{
         await axios.get('/user/logout')
         setIsAdmin(false)
@@ -26,7 +38,10 @@ function MainPage_Header() {
     const adminRouter = () =>{
         return(
             <>
-                <li><Link to="createFlight">Create Flight</Link></li>
+                <li><Link to="/createFlight" onClick={createFlight} >Create Flight</Link></li>
+                
+                <li><Link to="/cat" onClick={cat}>Categories</Link></li>
+            
             </>
         )
     }
@@ -34,7 +49,7 @@ function MainPage_Header() {
     const loggedRouter = () =>{
         return(
             <>
-                <li><Link to="/">History</Link></li>
+                <li><Link to="/history" onClick={hist}>History</Link></li>
                 <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
             </>
         )
@@ -57,13 +72,13 @@ function MainPage_Header() {
                 </h1>
             </div>
 
-            <ul style={styleMenu}>
+            <ul style={styleMenu} className='ul-items'>
                 <li><Link to="/">{isAdmin ? 'Flights' : 'Shop'}</Link></li>
 
                 {isAdmin && adminRouter()}
 
                 {
-                    isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
+                    loggedRouter() 
                 }
 
                 <li onClick={() => setMenu(!menu)}>
@@ -77,7 +92,7 @@ function MainPage_Header() {
                 isAdmin ? '' 
                 :<div className="cart-icon">
                     <span>{cart.length}</span>
-                    <Link to="/cart">
+                    <Link to="/cart" onClick={ca}>
                         <img src={Plane} alt="" width="30" />
                     </Link>
                 </div>

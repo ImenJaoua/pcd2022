@@ -14,15 +14,16 @@ const initialState = {
     Airline:'',
     Capacity: '',
     Description: '',
-    Price: '',
-    Category:'',
+    Price: 0,
+    category:'',
 
 }
 
 function CreateFlight() {
     const state = useContext(GlobalState)
     const [flight, setFlight] = useState(initialState)
-    // const [categories] = state.categoriesAPI.categories
+    const [categories] = state.categoriesAPI.categories
+
      const [images, setImages] = useState(false)
     const [loading, setLoading] = useState(false)
 
@@ -154,6 +155,19 @@ function CreateFlight() {
                 </div> 
                 
                 <div className="row">
+                    <label htmlFor="categories">Categories: </label>
+                    <select name="category" value={flight.category} onChange={handleChangeInput} >
+                        <option value="">Please select a category</option>
+                        {
+                            categories.map(category => (
+                                <option value={category._id} key={category._id}>
+                                    {category.name}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
+                <div className="row">
                     <label htmlFor="dt">Departure time</label>
                     <input type="text" name="DepatureTime" id="dt" required
                         value={flight.DepatureTime}  onChange={handleChangeInput} />
@@ -180,7 +194,7 @@ function CreateFlight() {
                        value={flight.Airline}   onChange={handleChangeInput} />
                 </div>
                 <div className="row">
-                    <label htmlFor="price">Capacity</label>
+                    <label htmlFor="capacity">Capacity</label>
                     <input type="number" name="Capacity" id="capacity" required
                         value={flight.Capacity}  onChange={handleChangeInput} />
                 </div>
@@ -192,15 +206,11 @@ function CreateFlight() {
                 </div>
 
                 <div className="row">
-                    <label htmlFor="content">Price</label>
-                    <input type="text" name="Price" id="price" required
+                    <label htmlFor="price">Price</label>
+                    <input type="number" name="Price" id="price" required
                      rows="2"  value={flight.Price} onChange={handleChangeInput} />
                 </div>
-                {/* <div className="row">
-                    <label htmlFor="content">Category</label>
-                    <input type="text" name="Category" id="cat" required
-                     rows="2"  value={flight.Category} onChange={handleChangeInput} />
-                </div> */}
+                
                 <button type="submit">{onEdit? "Update" : "Create"}</button>
             </form>
         </div>

@@ -38,7 +38,9 @@ function DetailFlight() {
                         <span>$ {detailFlight.Price}</span>
                         <p>{detailFlight.Description}</p>
                         <p>{detailFlight.Airline}</p>
-                        <p>Sold: {detailFlight.Capacity}</p>
+                        <p>{detailFlight.category}</p>
+
+                        <p>Capacity: {detailFlight.Capacity}</p>
                         <Link to="/cart" className="cart"
                             onClick={() => addCart(detailFlight)}>
                             Book Now

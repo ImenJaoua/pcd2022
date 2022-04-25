@@ -1,7 +1,7 @@
 import React, {createContext, useState, useEffect} from 'react'
 import FlightAPI from './api/FlightAPI'
 import UserAPI from './api/UserAPI'
-//import CategoriesAPI from './api/CategoriesAPI'
+import CategoriesAPI from './api/CategoriesAPI'
 
 import axios from 'axios'
 export const GlobalState = createContext()
@@ -32,7 +32,7 @@ export const DataProvider = ({children}) =>{
     token: [token, setToken],
       flightAPI: FlightAPI(),
       userAPI: UserAPI(token),
-        //categoriesAPI: CategoriesAPI()
+      categoriesAPI: CategoriesAPI()
     }
 
     return (

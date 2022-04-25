@@ -13,9 +13,11 @@ import Booking from './pages/Booking/Booking';
 import Flights from './pages/flights/Flights';
 import { DataProvider } from './GlobalState'
 import MainPage from './pages/MainPage/MainPage';
+import Categories from './pages/Categories/Categories'
 import CreateFlight from './pages/CreateFlight/CreateFlight';
 import DetailFlight from './pages/DetailFlight/DetailFlight'
-import Cart from './Components/Cart/Cart'
+import Cart from './pages/Cart/Cart'
+import OrderHistory from './pages/History/OrderHistory';
 const App = () => {
   return (
     <DataProvider>
@@ -39,6 +41,9 @@ const App = () => {
             <Route path="/register" exact>
               <Register/>
             </Route>
+            <Route path="/history" exact>
+              <OrderHistory/>
+            </Route>
             <Route path="/flight" exact>
               <Flights />
             </Route>
@@ -50,6 +55,9 @@ const App = () => {
             </Route>
             <Route path="/cart" exact>
               <Cart />
+            </Route>
+            <Route path="/cat" exact>
+              <Categories />
             </Route>
             <Route path="/booking" exact>
               <Booking />

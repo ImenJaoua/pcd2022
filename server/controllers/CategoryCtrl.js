@@ -28,7 +28,7 @@ const categoryCtrl = {
     },
     deleteCategory: async(req, res) =>{
         try {
-            const flights = await Flight.findOne({category: req.params.id})
+            const flights = await Flight.findOne({Destination: req.params.id})
             if(flights) return res.status(400).json({
                 msg: "Please delete all flights with a relationship."
             })

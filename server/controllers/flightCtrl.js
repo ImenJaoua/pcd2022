@@ -47,15 +47,15 @@ const flightCtrl = {
 createFlight: async(req, res) =>{
     try {
 
-        const{Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Description,Price,images}=req.body
-         if(!Destination || !DepatureTime || !ArrivalTime || !DepatureAirport || !ArrivalAirport || !Airline || !Capacity || !Description || !Price){
+        const{Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Description,Price,images,category}=req.body
+         if(!Destination || !DepatureTime || !ArrivalTime || !DepatureAirport || !ArrivalAirport || !Airline || !Capacity || !Description || !Price || !category){
               return res.status(422).json({error:"please add  all the fields!"}) 
              
          }
          if(!images) return res.status(400).json({msg:"No image upload"})
                   const newFlight=new Flight({
                     
-                    Destination, 
+                    Destination:Destination.toLowerCase(), 
                     DepatureTime,
                     ArrivalTime,
                     DepatureAirport,
@@ -64,7 +64,8 @@ createFlight: async(req, res) =>{
                     Capacity,
                     Description,
                     Price,
-                    images
+                    images,
+                    category
                     
                     
                  })
@@ -109,7 +110,7 @@ createFlight: async(req, res) =>{
                     const{Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images,category}=req.body
         
                     await Flight.findOneAndUpdate({_id: req.params.id}, {
-                        Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images,category
+                        Destination:Destination.toLowerCase(), DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images,category
                     })
         
                     res.json({msg: "Updated a Flight"})

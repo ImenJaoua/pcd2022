@@ -42,12 +42,16 @@ const FlightSchema = new mongoose.Schema ({
         trim:true,
         required:true
     },
+    category:{
+        type:String,
+        required:true
+    },
     Description:{
         type:String,
         required:true
     },
     Price:{
-        type:String,
+        type:Number,
         trim:true,
 
         required:true
@@ -59,7 +63,8 @@ const FlightSchema = new mongoose.Schema ({
     checked:{
         type:Boolean,
         default:false
-    }
+    }, 
+    
    /* postedBy:{
         type:ObjectId,
         ref:"Admin"
@@ -70,5 +75,6 @@ const FlightSchema = new mongoose.Schema ({
      }*/
     
    
+},{        timestamps:true
 })
 module.exports =  mongoose.model("Flight",FlightSchema)
