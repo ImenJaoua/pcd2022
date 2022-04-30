@@ -73,7 +73,7 @@ function MainPage_Header() {
             </div>
 
             <ul style={styleMenu} className='ul-items'>
-                <li><Link to="/">{isAdmin ? 'Flights' : 'Shop'}</Link></li>
+                <li><Link to="/main">{isAdmin ? 'Flights' : 'Shop'}</Link></li>
 
                 {isAdmin && adminRouter()}
 

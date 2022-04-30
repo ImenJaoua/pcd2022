@@ -6,7 +6,9 @@ function BtnRender({flight,deleteFlight}) {
     const state = useContext(GlobalState)
     const [isAdmin] = state.userAPI.isAdmin
     const addCart = state.userAPI.addCart
-    
+    const det = async()=>{
+        window.location.href ="/detail/:id";
+    }
 
     return (
         <div className="row_btn">
@@ -25,7 +27,7 @@ function BtnRender({flight,deleteFlight}) {
                     <Link id="btn_buy" to="/cart" onClick={() => addCart(flight)}>
                         Book
                     </Link>
-                    <Link id="btn_view" to={`/detail/${flight._id}`}>
+                    <Link id="btn_view" to={`/detail/${flight._id}`} >
                         View
                     </Link>
                 </>

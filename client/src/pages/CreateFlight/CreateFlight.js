@@ -7,10 +7,13 @@ import { useHistory, useParams } from 'react-router-dom'
 import Loading from '../../Components/Loading/Loading'
 const initialState = {
     Destination: '',
+    DatOp:'',
     DepatureTime:'',
     ArrivalTime:'',
     DepatureAirport:'',
     ArrivalAirport:'',
+    Status:'',
+    AC:'',
     Airline:'',
     Capacity: '',
     Description: '',
@@ -152,21 +155,13 @@ function CreateFlight() {
                     <label htmlFor="title">Destination</label>
                     <input type="text" name="Destination" id="Destination" required
                     value={flight.Destination} onChange={handleChangeInput} />
+               
+                    <label htmlFor="title">Date of the flight</label>
+                    <input type="date" name="DatOp" id="DatOp" required
+                    value={flight.DatOp} onChange={handleChangeInput} />
                 </div> 
-                
-                <div className="row">
-                    <label htmlFor="categories">Categories: </label>
-                    <select name="category" value={flight.category} onChange={handleChangeInput} >
-                        <option value="">Please select a category</option>
-                        {
-                            categories.map(category => (
-                                <option value={category._id} key={category._id}>
-                                    {category.name}
-                                </option>
-                            ))
-                        }
-                    </select>
-                </div>
+
+               
                 <div className="row">
                     <label htmlFor="dt">Departure time</label>
                     <input type="text" name="DepatureTime" id="dt" required
@@ -187,6 +182,16 @@ function CreateFlight() {
                     <label htmlFor="aa">Arrival Airport</label>
                     <input type="text" name="ArrivalAirport" id="aa" required
                        value={flight.ArrivalAirport}   onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="airline">Status</label>
+                    <input type="text" name="Status" id="Status" required
+                       value={flight.Status}   onChange={handleChangeInput} />
+                </div>
+                <div className="row">
+                    <label htmlFor="airline">Air Craft</label>
+                    <input type="text" name="AC" id="AC" required
+                       value={flight.AC}   onChange={handleChangeInput} />
                 </div>
                 <div className="row">
                     <label htmlFor="airline">Airline</label>
@@ -210,7 +215,19 @@ function CreateFlight() {
                     <input type="number" name="Price" id="price" required
                      rows="2"  value={flight.Price} onChange={handleChangeInput} />
                 </div>
-                
+                <div className="row">
+                    <label htmlFor="categories">Categories: </label>
+                    <select name="category" value={flight.category} onChange={handleChangeInput} >
+                        <option value="">Please select a category</option>
+                        {
+                            categories.map(category => (
+                                <option value={category._id} key={category._id}>
+                                    {category.name}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
                 <button type="submit">{onEdit? "Update" : "Create"}</button>
             </form>
         </div>

@@ -47,19 +47,22 @@ const flightCtrl = {
 createFlight: async(req, res) =>{
     try {
 
-        const{Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Description,Price,images,category}=req.body
-         if(!Destination || !DepatureTime || !ArrivalTime || !DepatureAirport || !ArrivalAirport || !Airline || !Capacity || !Description || !Price || !category){
+        const{Destination,DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Description,Price,images,category}=req.body
+         if(!Destination || !DatOp || !DepatureTime || !ArrivalTime || !DepatureAirport || !ArrivalAirport || !Status || !AC || !Airline || !Capacity || !Description || !Price || !category){
               return res.status(422).json({error:"please add  all the fields!"}) 
              
          }
          if(!images) return res.status(400).json({msg:"No image upload"})
                   const newFlight=new Flight({
                     
-                    Destination:Destination.toLowerCase(), 
+                    Destination:Destination.toLowerCase(),
+                    DatOp, 
                     DepatureTime,
                     ArrivalTime,
                     DepatureAirport,
                     ArrivalAirport,
+                    Status,
+                    AC,
                     Airline,
                     Capacity,
                     Description,
@@ -107,10 +110,10 @@ createFlight: async(req, res) =>{
             },
             updateFlight: async(req, res) =>{
                 try {
-                    const{Destination, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images,category}=req.body
+                    const{Destination,DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Price,images,category}=req.body
         
                     await Flight.findOneAndUpdate({_id: req.params.id}, {
-                        Destination:Destination.toLowerCase(), DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Airline,Capacity,Price,images,category
+                        Destination:Destination.toLowerCase(),DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Price,images,category
                     })
         
                     res.json({msg: "Updated a Flight"})

@@ -68,8 +68,8 @@
     margin: 15px 30px;
 }
 .create_flight form .row{
-    width: 100%;
-    margin: 15px 0;
+    width: 400px;
+    margin: 20px 0;
 }
 .create_flight form input, textarea{
     width: 100%;

@@ -2,8 +2,12 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { GlobalState } from '../../GlobalState'
 import FlightItem from '../../Components/FlightItem/FlightItem'
-import './DetailFlight.css'
+import location from './icon/location-mark.svg'
+import price from './icon/price.svg'
+import calendar from './icon/calendar-search.svg'
 
+import './DetailFlight.css'
+import MainPageHeader from "../../Components/MainPage_Header/MainPage_Header"
 function DetailFlight() {
     const params = useParams()
     const state = useContext(GlobalState)
@@ -21,33 +25,47 @@ function DetailFlight() {
         }
     }, [params.id, flights])
 
+
+
     if (detailFlight.length === 0) return null;
 
     return (
         <>
-            <div class="container">
-                <div class="cover">
-                    <img src={detailFlight.images.url} alt="" />
-                </div>
-                <div class="content">
+                <MainPageHeader/>
 
-                    <div className="box-detail">
-                        <div className="row">
-                            <h2>{detailFlight.Destination}</h2>
-                        </div>
-                        <span>$ {detailFlight.Price}</span>
-                        <p>{detailFlight.Description}</p>
-                        <p>{detailFlight.Airline}</p>
-                        <p>{detailFlight.category}</p>
-
-                        <p>Capacity: {detailFlight.Capacity}</p>
-                        <Link to="/cart" className="cart"
-                            onClick={() => addCart(detailFlight)}>
-                            Book Now
-                        </Link>
+            <div className="detail">
+                <img src={detailFlight.images.url} alt="" />
+                <div className="box-detail">
+                    <div className="row">
+                        <img src={location} alt="icon" />
+                        <span>{detailFlight.Destination}</span>
+                       
                     </div>
+                    <div className="row">
+                        <img src={calendar} alt="icon" />
+                        <span>{detailFlight.DepatureTime}</span>
+                        
+                        <img  src={calendar} alt="icon" />
+                        <span>{detailFlight.ArrivalTime}</span>
+                       
+                    </div>
+
+                    <div className='price'>
+                    <img src={price} alt="icon" />
+
+                    <span>{detailFlight.Price}</span>
+                    </div>
+
+                    <p>{detailFlight.Description}</p>
+                    <p>{detailFlight.Airline}</p>
+                    <p>Capacity: {detailFlight.Capacity}</p>
+                    <Link to="/cart" className="cart"
+                        onClick={() => addCart(detailFlight)}>
+                        Book Now
+                    </Link>
                 </div>
             </div>
+
             <div>
                 <h2>Related Flights</h2>
                 <div className="flights">

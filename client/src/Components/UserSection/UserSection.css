@@ -1,16 +1,15 @@
-.hero {
- 
-    height: 80vh;
+.sec {
+    height: 82vh;
     width: 92%;
-    margin: 1% 0 0 4%;
-    background-image: url(.//hero.jpg);
+    margin: 0.5% 0 0 4%;
+    background-image: url(.//travel-blog.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 15px 15px rgb(0 0 0 / 50%);
     overflow: hidden;
     position: relative;
   }
-  .content{
+  .content_user{
     margin-top: 5px;
     height: 100%;
     width: 100%;
@@ -24,7 +23,7 @@
     align-items: center;
     gap: 1rem;
   }
-  .header-text {
+  .header-text-user {
     padding: 40px 10px 5px 80px;
     display: flex;
     align-items: center;
@@ -33,25 +32,26 @@
   
   }
   
-   .text-center {
+   .text-center-user {
     font-size: 15px;
     font-weight: lighter;
     font-family: monospace;
     margin-top: -20px;
   
   }
-  .text-center h2{
+  .text-center-user h2{
     font-size: 3rem;
     letter-spacing: 0.2rem;
   }
-  .search{
+  .search-user{
     display: flex;
     background-color: #fff;
     padding: 0.5rem;
     border-radius: 0.5rem;
     margin-left: 50px;
+    margin-top: 20px;
   }
-  .container{
+  .container-user{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,18 +62,18 @@
   label{
     font-size: 1.1rem;
   }
-  .container input{
+  .container-user input{
     background-color: transparent;
     border: none;
     text-align: center;
     color: black;
   }
-  .banner-btn {
+  .banner-btn-user {
     border: 3px solid #4361ee;
     width: 200px;
-    margin-top: 20px;
+    height: 42px;
+    margin-top: 40px;
     margin-left: 50px;
-    height: 42px ;
     background: #4361ee;
     border-radius: 35px;
     color: #fff;

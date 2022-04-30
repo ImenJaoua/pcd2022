@@ -4,7 +4,11 @@ const FlightSchema = new mongoose.Schema ({
     Destination:{
         type:String,
         trim:true,
-
+        required:true
+    },
+    DatOp:{
+        type:Date,
+        trim:true,
         required:true
     },
   
@@ -29,6 +33,16 @@ const FlightSchema = new mongoose.Schema ({
         type:String,
         trim:true,
 
+        required:true
+    },
+    Status:{
+        type:String,
+        trim:true,
+        required:true
+    },
+    AC:{
+        type:String,
+        trim:true,
         required:true
     },
     Airline:{
