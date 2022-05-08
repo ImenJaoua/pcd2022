@@ -47,7 +47,7 @@ const flightCtrl = {
 createFlight: async(req, res) =>{
     try {
 
-        const{Destination,DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Description,Price,images,category}=req.body
+        const{Destination,DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Description,Price,images,category,prediction}=req.body
          if(!Destination || !DatOp || !DepatureTime || !ArrivalTime || !DepatureAirport || !ArrivalAirport || !Status || !AC || !Airline || !Capacity || !Description || !Price || !category){
               return res.status(422).json({error:"please add  all the fields!"}) 
              
@@ -68,8 +68,8 @@ createFlight: async(req, res) =>{
                     Description,
                     Price,
                     images,
-                    category
-                    
+                    category,
+                    prediction
                     
                  })
                 await newFlight.save()
@@ -110,10 +110,10 @@ createFlight: async(req, res) =>{
             },
             updateFlight: async(req, res) =>{
                 try {
-                    const{Destination,DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Price,images,category}=req.body
+                    const{Destination,DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Price,images,category,prediction}=req.body
         
                     await Flight.findOneAndUpdate({_id: req.params.id}, {
-                        Destination:Destination.toLowerCase(),DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Price,images,category
+                        Destination:Destination.toLowerCase(),DatOp, DepatureTime,ArrivalTime,DepatureAirport,ArrivalAirport,Status,AC,Airline,Capacity,Price,images,category,prediction
                     })
         
                     res.json({msg: "Updated a Flight"})

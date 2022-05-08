@@ -6,8 +6,12 @@ const FlightSchema = new mongoose.Schema ({
         trim:true,
         required:true
     },
+ prediction:{
+     type:Number,
+     default:0
+ },
     DatOp:{
-        type:Date,
+        type:String,
         trim:true,
         required:true
     },
@@ -64,6 +68,7 @@ const FlightSchema = new mongoose.Schema ({
         type:String,
         required:true
     },
+   
     Price:{
         type:Number,
         trim:true,

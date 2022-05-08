@@ -5,12 +5,12 @@ function FlightItem({ flight, isAdmin, deleteFlight, handleCheck }) {
     return (
 
         <div className='flight_card'>
-             {
+            {
                 isAdmin && <input type="checkbox" checked={flight.checked}
-                onChange={() => handleCheck(flight._id)} />
+                    onChange={() => handleCheck(flight._id)} />
             }
-                <img src={flight.images.url} alt="" />
-           
+            <img src={flight.images.url} alt="" />
+
             <div className='flight_box'>
 
 
@@ -19,13 +19,13 @@ function FlightItem({ flight, isAdmin, deleteFlight, handleCheck }) {
 
                     <small className='text'>{flight.Description}</small>
                     <div className='service-footer'>
-                        <h1>
-                            {flight.Price}
-                        </h1>
+                        <h2>
+                            {flight.Price} DT
+                        </h2>
                         <a href="/booking">
-                            <BtnRender flight={flight} deleteFlight={deleteFlight} />
+                            <BtnRender  flight={flight} deleteFlight={deleteFlight} />
                         </a>
-                        
+
 
                     </div>
 

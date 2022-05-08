@@ -4,7 +4,7 @@ import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 import Navbar from '../../Components/Navbar/Navbar'
 import About from '../../Components/About/About'
-import Services from '../../Components/Service/Services'
+import Services from '../../Components/Services/Services'
 import Subscribe from '../../Components/Subscribe/Subscribe'
 import { GlobalState } from '../../GlobalState'
 

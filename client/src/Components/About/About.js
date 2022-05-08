@@ -10,34 +10,29 @@ const About = () => {
       <div className='about-us'>
         <div className='about'>
           <div className='about-icon'>
-            <i className="fas fa-heart"></i>
-          </div>
+          <i class="fas fa-heart"></i>           </div>
           <h4>HAPPY CLIENTS</h4>
-          <p>Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</p>
-          <button type='submit' className='about-btn'>VIEW MORE</button>
+          <p>The happiness of our clients is our first priority! </p>
         </div>
         <div className='about'>
           <div className='about-icon'>
-            <i class="fas fa-plane"></i>      </div>
+          <i class="fas fa-plane"></i>        </div>
           <h4>AMAZING TOUR</h4>
-          <p>Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</p>
-          <button type='submit' className='about-btn'>VIEW MORE</button>
+          <p>We offer amazing tours to all destinations all over the world! </p>
         </div>
         <div className='about'>
           <div className='about-icon'>
-          <i class="fas fa-dollar-sign"></i>
-                    </div>
+            <i class="fas fa-dollar-sign"></i>
+          </div>
           <h4> BEST PRICES</h4>
-          <p>Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</p>
-          <button type='submit' className='about-btn'>VIEW MORE</button>
+          <p>Book with LET'S TRAVEL for security and flexibility at low prices!</p>
         </div>
         <div className='about'>
           <div className='about-icon'>
             <i class="far fa-credit-card"></i>
           </div>
           <h4>FLEXIBLE PAYMENT</h4>
-          <p>Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</p>
-          <button type='submit' className='about-btn'>VIEW MORE</button>
+          <p> After your deposit, pay the rest in instalments The amounts you like!</p>
         </div>
       </div>
 

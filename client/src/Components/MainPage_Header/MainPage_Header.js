@@ -49,7 +49,6 @@ function MainPage_Header() {
     const loggedRouter = () =>{
         return(
             <>
-                <li><Link to="/history" onClick={hist}>History</Link></li>
                 <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
             </>
         )
@@ -68,12 +67,17 @@ function MainPage_Header() {
 
             <div className="logo">
                 <h1>
-                    <Link to="/main">{isAdmin ? 'Admin' : 'Travel'}</Link>
+                    <Link to="/main">{isAdmin ? 'Admin' : 'LET S Travel'}</Link>
                 </h1>
             </div>
 
             <ul style={styleMenu} className='ul-items'>
-                <li><Link to="/main">{isAdmin ? 'Flights' : 'Shop'}</Link></li>
+                <li><Link to="/main">{isAdmin ? 'Flights' : 'Home'}</Link></li>
+                {isAdmin? ''
+                :
+                <li><Link to="/history" onClick={hist}>History</Link></li>
+
+                }
 
                 {isAdmin && adminRouter()}
 

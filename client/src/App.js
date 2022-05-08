@@ -18,6 +18,7 @@ import CreateFlight from './pages/CreateFlight/CreateFlight';
 import DetailFlight from './pages/DetailFlight/DetailFlight'
 import Cart from './pages/Cart/Cart'
 import OrderHistory from './pages/History/OrderHistory';
+import Prediction from './pages/Prediction/Prediction'
 const App = () => {
   return (
     <DataProvider>
@@ -61,6 +62,9 @@ const App = () => {
             </Route>
             <Route path="/booking" exact>
               <Booking />
+            </Route>
+            <Route path="/prediction/:id" exact>
+              <Prediction />
             </Route>
             <Redirect to="/" />
           </Switch>

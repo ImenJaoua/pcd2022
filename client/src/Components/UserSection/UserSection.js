@@ -1,6 +1,12 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './UserSection.css'
+import {GlobalState} from '../../GlobalState'
+
 function UserSection() {
+    const state = useContext(GlobalState)
+    const [search, setSearch] = state.flightAPI.search
+    const [searsh, setSearsh] = state.flightAPI.searsh
+
     return (
         <div>
             <div className='sec'>
@@ -13,17 +19,17 @@ function UserSection() {
                     <div className='search-user'>
                         <div className='container-user'>
                             <label htmlFor=''>Where you want to go</label>
-                            <input type="text" placeholder="Search your location" />
+                            <input type="text" value={search} placeholder="Enter your search!" 
+                            onChange={e => setSearch(e.target.value.toLowerCase())}  />
 
                         </div>
                         <div className='container-user'>
-                            <label htmlFor=''>Check-in</label>
-                            <input type="date" />
+                            <label htmlFor=''>Date of your flight</label>
+
+                            <input type="date" value={searsh} 
+                            onChange={e => setSearsh(e.target.value.toString())} />
                         </div>
-                        <div className='container-user'>
-                            <label htmlFor=''>Check-out</label>
-                            <input type="date" />
-                        </div>
+                        
                     </div>
                     <a href='/login'>
                         <button type="submit" class="banner-btn-user">Book Now</button>

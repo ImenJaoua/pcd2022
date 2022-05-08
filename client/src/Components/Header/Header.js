@@ -18,13 +18,10 @@ function Header() {
 
                         </div>
                         <div className='container'>
-                            <label htmlFor=''>Check-in</label>
+                            <label htmlFor=''>Date of your flight</label>
                             <input type="date" />
                         </div>
-                        <div className='container'>
-                            <label htmlFor=''>Check-out</label>
-                            <input type="date" />
-                        </div>
+                        
                     </div>
                     <a href='/login'>
                         <button type="submit" className="banner-btn">Book Now</button>

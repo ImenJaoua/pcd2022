@@ -1,48 +1,52 @@
+.detailsPage{
+    background-image: linear-gradient(315deg, #e7eff9 0%, #cfd6e6 74%);
+
+}
 .detail{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 50px;
     font-size: 150%;
+
 }
 .detail img{
     max-width: 600px;
     width: 100%;
     margin: 20px;
-    height: 600px;
+    height: 500px;
     object-fit: cover;
     display: block;
 }
 .box-detail{
     max-width: 500px;
     width: 100%;
-    margin: 5px 20px;
+    margin: 45px 20px;
+    
 }
 .box-detail .row{
     display: flex;
-    align-items: center;
-    
-    
+    align-items: center;  
 }
 .box-detail span{
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 1rem;
-    font-size: 20px;
+    font-size: 21px;
 }
 .row img{
     height: auto;
     width: 7%;
     filter: brightness(0%);
 }
-
-.price{
-    display: flex;
-    align-items: center;
-
+#ha{
+    margin-left: 100px;
 }
-.box-detail .price img{
+#cap{
+    margin-left: 150px;
+}
+#price{
     height: auto;
     width: 3%;
 }
@@ -58,13 +62,23 @@
     line-height: 1.5;
     margin: 10px 0;
     opacity: 0.8;
+    font-size: 18px;
 }
+
 .box-detail .cart{
-    background: #333;
+    background: #4361ee;
     color: white;
-    margin-top: 10px;
+    margin-top: 50px;
+    margin-left:120px;
     padding: 10px 25px;
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+.related{
+    margin-left: 650px;
+    font-size: 30px;
+}
+ .flights{
+     margin-top: 50px;
+ }

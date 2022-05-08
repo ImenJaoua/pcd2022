@@ -33,7 +33,7 @@ function OrderHistory() {
         <div className="history-page">
             <h2>History</h2>
 
-            <h4>You have {history.length} ordered</h4>
+            <h4>You have {history.length} flights</h4>
 
             <table>
                 <thead>

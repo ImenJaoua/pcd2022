@@ -3,7 +3,10 @@ import { GlobalState } from '../../GlobalState'
 import axios from 'axios'
 import './Cart.css'
 import PaypalButton from './PaypalButton'
-
+import location from './icon/location-mark.svg'
+import price from './icon/price.svg'
+import avatar from './icon/avatar.png'
+import MainPage_Header from '../../Components/MainPage_Header/MainPage_Header'
 function Cart() {
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
@@ -82,40 +85,48 @@ function Cart() {
         return <h2 style={{ textAlign: "center", fontSize: "5rem" }}>Cart Empty</h2>
 
     return (
-        <div>
+        <div className='Cart'>
+            <MainPage_Header />
             {
                 cart.map(flight => (
                     <div className="detail cart" key={flight._id}>
                         <img src={flight.images.url} alt="" />
 
                         <div className="box-detail">
-                            <h2>{flight.Destination}</h2>
+                            <div className="roww">
+                                <img src={location} alt="icon" />
+                                <span>{flight.Destination}</span>
+                                <img id='Price' src={price} alt="icon" />
+                                <span>{flight.Price} DT</span>
+                            </div>
 
-                            <h3>$ {flight.Price * flight.quantity}</h3>
                             <p>{flight.Description}</p>
 
                             <div className="amount">
+
                                 <button onClick={() => decrement(flight._id)}> - </button>
+
                                 {<span>{flight.quantity}</span>}
                                 <button onClick={() => increment(flight._id)}> + </button>
                             </div>
-
+                            <div className="total">
+                            <span>Total:</span><h4>{total}DT</h4>
+                                <PaypalButton
+                                    total={total}
+                                    tranSuccess={tranSuccess} />
+                            </div>
                             <div className="delete"
                                 onClick={() => removeFlight(flight._id)}>
                                 X
                             </div>
                         </div>
+
+
                     </div>
                 ))
             }
 
 
-            <div className="total">
-                <h3>Total: $ {total}</h3>
-                <PaypalButton
-                    total={total}
-                    tranSuccess={tranSuccess} />
-            </div>
         </div>
     )
 }

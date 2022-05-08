@@ -33,7 +33,7 @@ app.use(fileUpload({
 }))
 app.use(cookieParser())
 app.use('/user',require('./routes/authP'))
-//app.use(require('./routes/Booking'))
+app.use('/api',require('./routes/Booking'))
 app.use('/api',require('./routes/Flight'))
 app.use('/api',require('./routes/upload'))
 app.use('/api', require('./routes/categoryRouter'))

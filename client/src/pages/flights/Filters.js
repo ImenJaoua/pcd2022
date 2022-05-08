@@ -17,7 +17,7 @@ function Filters() {
     return (
         <div className="filter_menu">
             <div className="row">
-                <span>Pays: </span>
+                <span>Countries: </span>
                 <select name="category" value={category} onChange={handleCategory} >
                     <option value=''>All Flights</option>
                     {

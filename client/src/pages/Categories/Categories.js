@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react'
 import {GlobalState} from '../../GlobalState'
 import axios from 'axios'
 import './Categories.css'
+import MainPage_Header from '../../Components/MainPage_Header/MainPage_Header'
+
 function Categories() {
     const state = useContext(GlobalState)
     const [categories] = state.categoriesAPI.categories
@@ -53,6 +55,9 @@ function Categories() {
     }
 
     return (
+        <>
+        <MainPage_Header/>
+
         <div className="categories">
             <form onSubmit={createCategory}>
                 <label htmlFor="category">Pays</label>
@@ -76,6 +81,7 @@ function Categories() {
                 }
             </div>
         </div>
+        </>
     )
 }
 

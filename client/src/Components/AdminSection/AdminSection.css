@@ -1,0 +1,47 @@
+.sec1 {
+    height: 80vh;
+    width: 92%;
+    margin: 0.1% 0 0 4%;
+    background-image: url(.//photo.jfif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 15px 15px rgb(0 0 0 / 50%);
+    overflow: hidden;
+    position: relative;
+  }
+  .content_admin{
+    margin-top: 5px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .header-text-admin {
+    padding: 40px 10px 5px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  
+  }
+  
+   .text-center-admin {
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: monospace;
+    margin-top: -20px;
+  
+  }
+  .text-center-admin h2{
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    margin-left: -500px;
+    margin-top: 20px;
+  }
